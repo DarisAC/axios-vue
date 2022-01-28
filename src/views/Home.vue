@@ -77,14 +77,19 @@ export default {
   //   padding-top: 50px;
   // }
   &_item{
-    display: flex;
-    flex-wrap:wrap;
+    
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    
     justify-content: space-between;
-    padding-top: 50px;
+    padding: 50px 0;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+    justify-items:center
   }
   &_main{
-  width: 30%;
-  margin-bottom: 50px;
+  width: 100%;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
