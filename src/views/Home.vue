@@ -16,7 +16,7 @@
             </div>
             <div class="market__basket">
               <div class="market__basket_coutner">
-                <button class="button" @click="addCount()"><span class="sign">+</span></button>  {{ this.count }}  <button class="button" @click="subCount()"><span class="sign">-</span></button>
+                <button class="button" @click="increatable"><span class="sign">+</span></button>  {{ this.count }}  <button class="button" @click="decreatable"><span class="sign">-</span></button>
             </div>
             <button class="market__basket_button">В корзину</button>
           </div>
@@ -38,6 +38,7 @@
 // `<img src=${posts[post].image}>`
 // @ is an alias to /src
 import axios from 'axios'
+import {mapState,mapGetters,mapActions} from 'vuex'
 
 export default {
   name: 'Home',
@@ -58,11 +59,25 @@ export default {
       this.errors.push(e)
     })
   },
- methods: {
-   addCount() {
+ 
+
+
+
+  computed:{
+    ...mapState(['count']), // возвращаемое значение mapState ():{count(){return this.store.state['count']}}
+                 // Примечание: в mapGetters ([]При использовании массива в) имя должно соответствовать имени, определенному в store.js. Если оно несовместимо, необходимо использовать объект и другие карты. . . () тоже похоже на это
+                 //Последовательность
+        /*  ...mapGetters(['eventOrOdd'])  //mapGetters()возвращаемое значение:{eventOrOdd(){return this.$store.getters.eventOrOdd}}*/
+                 // Несоответствие
+    ...mapGetters({eventOrOdd:'eventOrOdd2'})
+      },
+    methods: {
+        ...mapActions(['increatable','decreatable','Oddcreatable','timecreatable'])
+      }
+
   
- }
-}}
+
+}
 // 'https://fakestoreapi.com/products'
 </script>
 
