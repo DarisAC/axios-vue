@@ -1,7 +1,6 @@
 <template>
 <section class=market>
   <div class="container">
-    
       <div v-if=" posts.length != 0" class="market__content">
         <div class="market_item">
           <div v-for="( post,index ) of posts" :key="index" :class="post.category" class="market_main">
@@ -16,7 +15,7 @@
             </div>
             <div class="market__basket">
               <div class="market__basket_coutner">
-                <button class="button" @click="increatable"><span class="sign">+</span></button>  {{ this.count }}  <button class="button" @click="decreatable"><span class="sign">-</span></button>
+                <button class="button" @click="increatable(post)"><span class="sign">+</span></button>  {{ count }}  <button class="button" @click="decreatable"><span class="sign">-</span></button>
             </div>
             <button class="market__basket_button">В корзину</button>
           </div>
@@ -29,9 +28,11 @@
           {{error.message}}
         </li>
       </ul>
-    
+     
     </div>
 </section>
+
+
 </template>
 
 <script>
@@ -45,8 +46,7 @@ export default {
   data: () => ({
     posts: [],
     errors:[],
-    counter: 0,
-    count: 0
+    
 
   }),
 
@@ -94,7 +94,7 @@ export default {
   &_item{
     
     display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-columns: 30% 30% 30%;
     
     justify-content: space-between;
     padding: 50px 0;
