@@ -26,15 +26,16 @@ const store = createStore({
       state.count--;
       const hasCartItem = state.cart.some((index) => index.count === product.count);
       if (hasCartItem) {
-        state.cart.number--;
+       
         // console.log(state.cart.id);
-        // product.number--
+        product.number--
         // console.log(state.cart);
-        console.log("anime");
-      } else {
-        state.cart.number--;
         console.log(state.cart);
-        console.log(hasCartItem);
+      
+      } else {
+        // state.cart.number--;
+        // console.log(state.cart);
+        // console.log(hasCartItem);
         console.log(product);
         // console.log(state.cart[1].id);
       }
@@ -46,7 +47,7 @@ const store = createStore({
     },
 
     increatable({ commit }, product) {
-      if (product.number === undefined) {
+      if (!product.number ) {
         product.number = 1;
       }
       commit("Increatable", product);

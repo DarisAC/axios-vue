@@ -15,7 +15,7 @@
             </div>
             <div class="market__basket">
               <div class="market__basket_coutner">
-                <button class="button" @click="increatable(post)"><span class="sign">+</span></button>  {{ count }}  <button class="button" @click="decreatable"><span class="sign">-</span></button>
+                <button class="button" @click="increatable(post)"><span class="sign">+</span></button>  {{ post.number }}  <button class="button" @click="decreatable(post)"><span class="sign">-</span></button>
             </div>
             <button class="market__basket_button"  @click="$router.push('/cart')">В корзину</button>
           </div>
