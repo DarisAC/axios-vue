@@ -17,7 +17,7 @@
               <div class="market__basket_coutner">
                 <button class="button" @click="increatable(post)"><span class="sign">+</span></button>  {{ count }}  <button class="button" @click="decreatable"><span class="sign">-</span></button>
             </div>
-            <button class="market__basket_button">В корзину</button>
+            <button class="market__basket_button"  @click="$router.push('/cart')">В корзину</button>
           </div>
         </div>
           
@@ -69,7 +69,7 @@ export default {
                  //Последовательность
         /*  ...mapGetters(['eventOrOdd'])  //mapGetters()возвращаемое значение:{eventOrOdd(){return this.$store.getters.eventOrOdd}}*/
                  // Несоответствие
-    ...mapGetters({eventOrOdd:'eventOrOdd2'})
+    ...mapGetters(['getCartContent'])
       },
     methods: {
         ...mapActions(['increatable','decreatable','Oddcreatable','timecreatable'])
